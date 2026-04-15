@@ -3,6 +3,7 @@ package com.example.ToneFit.correction.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 public record CorrectionResponse(
         Long sessionId,
         int round,
@@ -18,6 +19,8 @@ public record CorrectionResponse(
             String corrected,
             String reason,
             String label,
+            double confidence,
+            List<String> appliedRules,
             String action
     ) {
     }
