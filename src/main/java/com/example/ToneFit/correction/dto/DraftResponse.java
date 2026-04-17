@@ -1,15 +1,19 @@
 package com.example.ToneFit.correction.dto;
 
+import com.example.ToneFit.session.model.Purpose;
+import com.example.ToneFit.session.model.Receiver;
+import com.example.ToneFit.session.model.Status;
+
 import java.time.LocalDateTime;
 
 public record DraftResponse(
         Long sessionId,
-        String receiverType,
-        String purpose,
+        Receiver receiverType,
+        Purpose purpose,
         String subject,
         String originalEmail,
         String context,
-        String status,
+        Status status,
         LocalDateTime updatedAt
 ) {
 }

@@ -1,5 +1,8 @@
 package com.example.ToneFit.correction.dto;
 
+import com.example.ToneFit.correction.model.Action;
+import com.example.ToneFit.correction.model.Label;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -11,16 +14,16 @@ public record RecorrectResponse(
         LocalDateTime createdAt
 ) {
     public record ChangeItem(
-            int sentenceIndex,
+            int index,
             int start,
             int end,
             String original,
             String corrected,
             String reason,
-            String label,
+            Label label,
             double confidence,
             List<String> appliedRules,
-            String action
+            Action action
     ) {
     }
 }
