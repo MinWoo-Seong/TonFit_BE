@@ -31,8 +31,6 @@ public record CorrectionDetailResponse(
             String corrected,
             String reason,
             String label,
-            double confidence,
-            List<String> appliedRules,
             String action
     ) {
     }
