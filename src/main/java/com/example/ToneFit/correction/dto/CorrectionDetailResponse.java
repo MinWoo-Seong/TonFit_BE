@@ -1,23 +1,17 @@
 package com.example.ToneFit.correction.dto;
 
-import com.example.ToneFit.correction.model.Action;
-import com.example.ToneFit.correction.model.Label;
-import com.example.ToneFit.session.model.Purpose;
-import com.example.ToneFit.session.model.Receiver;
-import com.example.ToneFit.session.model.Status;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
 public record CorrectionDetailResponse(
         Long sessionId,
-        Receiver receiverType,
-        Purpose purpose,
+        String receiverType,
+        String purpose,
         String subject,
         String originalEmail,
         String context,
         String finalEmail,
-        Status status,
+        String status,
         int totalRounds,
         List<FeedbackItem> feedbacks,
         LocalDateTime createdAt,
@@ -36,10 +30,10 @@ public record CorrectionDetailResponse(
             String original,
             String corrected,
             String reason,
-            Label label,
+            String label,
             double confidence,
             List<String> appliedRules,
-            Action action
+            String action
     ) {
     }
 }
