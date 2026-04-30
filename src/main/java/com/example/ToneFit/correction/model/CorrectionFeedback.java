@@ -11,11 +11,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Getter
@@ -61,13 +57,6 @@ public class CorrectionFeedback {
     @Column(nullable = false)
     private Label label;
 
-    @Column(nullable = false)
-    private double confidence;
-
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(columnDefinition = "jsonb")
-    private List<String> appliedRules;
-
     @Enumerated(EnumType.STRING)
     private Action action;
 
@@ -81,8 +70,7 @@ public class CorrectionFeedback {
     @Builder
     public CorrectionFeedback(User user, CorrectionSession session, int index, int round,
                               int start, int end, String original, String corrected,
-                              String reason, Label label, double confidence,
-                              List<String> appliedRules) {
+                              String reason, Label label) {
         this.user = user;
         this.session = session;
         this.index = index;
@@ -93,8 +81,6 @@ public class CorrectionFeedback {
         this.corrected = corrected;
         this.reason = reason;
         this.label = label;
-        this.confidence = confidence;
-        this.appliedRules = appliedRules;
     }
 
     public void updateAction(Action action) {
